@@ -2,6 +2,8 @@
 
 This is the official pytorch version repo for [Harnessing Perceptual Adversarial Patches for Crowd Counting].
 
+[![v4o4YV.png](https://s1.ax1x.com/2022/08/31/v4o4YV.png)](https://imgse.com/i/v4o4YV)
+
 ## ATTACK
 
 ### Prerequisites
