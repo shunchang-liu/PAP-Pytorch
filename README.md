@@ -44,7 +44,9 @@ ShanghaiB  [Google Drive](https://drive.google.com/open?id=1zKn6YlLW3Z9ocgPbP99o
 For attacking the CSRNet, you may modify the follow ones:
 
 `data_root = './data/attack_shanghai/' #the dataset root`
+
 `model_path = './pre_trained/PartA_model.pth.tar' #the pre-trained model root`
+
 `save_path = './results' # the results root, finally you can get the images with our adversarial patches`
 
 For attacking other models, you need to modify the `patch_attack.py` to fit your target model. 
