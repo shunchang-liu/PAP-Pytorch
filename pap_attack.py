@@ -146,9 +146,9 @@ def train(epoch):
             groundtruth = np.asarray(gt_file['density'])
             data_shape = images.unsqueeze(0).data.cpu().numpy().shape
             if i == 0 and e == 0:               
-                patch, patch_shape = init_patch_circle(image_size=[images.shape[1],images.shape[2]], patch_size=PATCH_SIZE, num_patch=1)
-                print(patch[0].shape)
-            patch, mask = square_transform(patch, data_shape, patch_shape, [images.shape[1],images.shape[2]], 1)
+                patch, patch_shape = init_patch_square(image_size=[images.shape[1],images.shape[2]], patch_size=PATCH_SIZE, num_patch=1)
+                #print(patch[0].shape)
+            patch, mask = patch_transform(patch, data_shape, patch_shape, [images.shape[1],images.shape[2]], 1)
             
             patch, mask = torch.FloatTensor(patch), torch.FloatTensor(mask)
             patch, mask = patch.cuda(), mask.cuda()
@@ -180,7 +180,7 @@ def test(patch, patch_shape):
         gt_file = h5py.File(test_img_paths[i].replace('.jpg','.h5').replace('images','ground_truth'),'r')
         groundtruth = np.asarray(gt_file['density'])
         data_shape = images.unsqueeze(0).data.cpu().numpy().shape        
-        patch, mask = square_transform(patch, data_shape, patch_shape, [images.shape[1],images.shape[2]], 1)
+        patch, mask = patch_transform(patch, data_shape, patch_shape, [images.shape[1],images.shape[2]], 1)
             
         patch, mask = torch.FloatTensor(patch), torch.FloatTensor(mask)
         patch, mask = patch.cuda(), mask.cuda()
